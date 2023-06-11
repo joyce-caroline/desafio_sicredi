@@ -8,7 +8,6 @@ class Paciente
     end
 
     def mostrar
-        puts "\t\t\tPaciente"
         puts "Nome: " + @nome
         puts "Telefone: " + @telefone
     end
@@ -43,7 +42,9 @@ end
 
 
 pacientes_cadastrados = []
+agendamentos = []
 cont_pacientes = 0
+indice = 1
 
 loop do
     puts "\t\t\t\t Sistema de Marcação de consultas"
@@ -63,11 +64,28 @@ loop do
                 puts "Digite o telefone para contato: "
                 telefone = gets.chomp.to_s
                 pacientes_cadastrados[cont_pacientes] = Paciente.new(nome, telefone)
+                pacientes_cadastrados[cont_pacientes].mostrar
                 puts "Paciente Cadastrado com Sucesso!"
                 cont_pacientes += 1
 
             when 2
-                puts '2'
+                puts "Selecione o número paciente para a marcação de consulta:"
+                loop do
+                    for pessoa in pacientes_cadastrados
+                        puts indice.to_s + " - " + pessoa.mostrar.to_s + "\n"
+                        # puts pessoa.mostrar
+                        indice += 1
+                    end
+                    numero_paciente = gets.chomp.to_i
+
+                    if (numero_paciente < 1 || numero_paciente > pacientes_cadastrados.length)
+                        puts "Número de paciente inválido!".
+                    else
+                        break
+                    end
+                end
+
+
             when 3
                 puts '3'
             when 4

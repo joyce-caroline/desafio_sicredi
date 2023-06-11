@@ -14,7 +14,7 @@ class Paciente
 
 end
 
-class Consulta
+class Agendamento
     attr_accessor :paciente
     attr_accessor :dia
     attr_accessor :hora
@@ -28,8 +28,8 @@ class Consulta
     end
 
 
-    def mostrar_consulta
-        puts "Nome do paciente: " + @paciente
+    def mostrar_agendamento ()
+        puts "Nome do paciente: " + @paciente.nome
         puts "Data da consulta: " + @dia
         puts "Hora: " + @hora
         puts "Especialidade: " + @especialidade
@@ -44,7 +44,9 @@ end
 pacientes_cadastrados = []
 agendamentos = []
 cont_pacientes = 0
+cont_agendamentos = 0
 indice = 1
+numero_paciente = 0
 
 loop do
     puts "\t\t\t\t Sistema de Marcação de consultas"
@@ -72,24 +74,32 @@ loop do
                 puts "Selecione o número paciente para a marcação de consulta:"
                 loop do
                     for pessoa in pacientes_cadastrados
-                        puts indice.to_s + " - " + pessoa.mostrar.to_s + "\n"
-                        # puts pessoa.mostrar
+                        puts indice
+                        puts pessoa.mostrar
                         indice += 1
                     end
                     numero_paciente = gets.chomp.to_i
 
                     if (numero_paciente < 1 || numero_paciente > pacientes_cadastrados.length)
-                        puts "Número de paciente inválido!".
+                        puts "Número de paciente inválido!"
                     else
                         break
                     end
                 end
-
-
+                puts "Digite o dia e o mês da consulta (dd/mm):"
+                dia = gets.chomp.to_s
+                puts "Digite a hora da consulta:"
+                hora = gets.chomp.to_s
+                puts "Digite a especialidade da consulta:"
+                especialidade = gets.chomp.to_s
+                agendamentos[cont_agendamentos] = Agendamento.new(pacientes_cadastrados[numero_paciente], dia, hora, especialidade)
+                puts "\n\n Agendamento realizado com sucesso!\n\n"
+                agendamentos[cont_agendamentos].mostrar_agendamento
+                cont_agendamentos += 1
             when 3
                 puts '3'
-            when 4
-                puts '4'
+            else
+                puts "Opção inválida"
         end
     end
     if opcao == 0

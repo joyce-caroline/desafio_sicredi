@@ -82,22 +82,33 @@ loop do
 
                     if (numero_paciente < 1 || numero_paciente > pacientes_cadastrados.length)
                         puts "Número de paciente inválido!"
-                    else
+                    elsif (numero_paciente == 0)
                         break
                     end
                 end
-                puts "Digite o dia e o mês da consulta (dd/mm):"
-                dia = gets.chomp.to_s
-                puts "Digite a hora da consulta:"
-                hora = gets.chomp.to_s
-                puts "Digite a especialidade da consulta:"
-                especialidade = gets.chomp.to_s
-                agendamentos[cont_agendamentos] = Agendamento.new(pacientes_cadastrados[numero_paciente], dia, hora, especialidade)
-                puts "\n\n Agendamento realizado com sucesso!\n\n"
-                agendamentos[cont_agendamentos].mostrar_agendamento
-                cont_agendamentos += 1
+                if(numero_paciente > 0 && numero_paciente < pacientes_cadastrados.length)
+                    puts "Digite o dia e o mês da consulta (dd/mm):"
+                    dia = gets.chomp.to_s
+                    puts "Digite a hora da consulta:"
+                    hora = gets.chomp.to_s
+                    puts "Digite a especialidade da consulta:"
+                    especialidade = gets.chomp.to_s
+                    agendamentos[cont_agendamentos] = Agendamento.new(pacientes_cadastrados[numero_paciente], dia, hora, especialidade)
+                    puts "\n\n Agendamento realizado com sucesso!\n\n"
+                    agendamentos[cont_agendamentos].mostrar_agendamento
+                    cont_agendamentos += 1
+                    indice = 1
+                end
             when 3
-                puts '3'
+                puts "Selecione o agendmento que deseja remarcar:"
+                loop do
+                    for consulta in agendamentos
+                        puts indice
+                        puts consulta.mostrar_agendamento
+                        indice += 1
+                    end
+
+                end
             else
                 puts "Opção inválida"
         end

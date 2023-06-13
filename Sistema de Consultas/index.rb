@@ -47,6 +47,7 @@ cont_pacientes = 0
 cont_agendamentos = 0
 indice = 1
 numero_paciente = 0
+numero_agendamento = 0
 
 loop do
     puts "\t\t\t\t Sistema de Marcação de consultas"
@@ -79,26 +80,28 @@ loop do
                         indice += 1
                     end
                     numero_paciente = gets.chomp.to_i
+                    indice = 1
 
                     if (numero_paciente < 1 || numero_paciente > pacientes_cadastrados.length)
-                        puts "Número de paciente inválido!"
-                    elsif (numero_paciente == 0)
+                        puts "\n NÚMERO DE PACIENTE INVÁLIDO! \n"
+                        sleep 5
+                    else
                         break
                     end
                 end
-                if(numero_paciente > 0 && numero_paciente < pacientes_cadastrados.length)
                     puts "Digite o dia e o mês da consulta (dd/mm):"
                     dia = gets.chomp.to_s
                     puts "Digite a hora da consulta:"
                     hora = gets.chomp.to_s
                     puts "Digite a especialidade da consulta:"
                     especialidade = gets.chomp.to_s
-                    agendamentos[cont_agendamentos] = Agendamento.new(pacientes_cadastrados[numero_paciente], dia, hora, especialidade)
+
+                    agendamentos[cont_agendamentos] = Agendamento.new(pacientes_cadastrados[numero_paciente - 1], dia, hora, especialidade)
                     puts "\n\n Agendamento realizado com sucesso!\n\n"
                     agendamentos[cont_agendamentos].mostrar_agendamento
                     cont_agendamentos += 1
-                    indice = 1
-                end
+
+
             when 3
                 puts "Selecione o agendmento que deseja remarcar:"
                 loop do

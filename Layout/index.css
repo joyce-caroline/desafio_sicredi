@@ -1,25 +1,26 @@
 * {
     padding: 0;
-    margin: 0.2rem;
+    margin: 0;
     box-sizing: border-box;
 }
 
 .container{
     display: grid;
-    grid-template-columns: 20rem 60rem;
+    grid-template-columns: 1.5fr 4fr;
     gap: 1.7rem;
 
 }
 
 aside {
+    padding: 2rem;
     border: 1px solid #000;
-    height: 39rem;
+    height: 40rem;
     padding: 0.9rem;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: center;
-    gap: 1.7rem;
+    justify-content:start;
+    align-items:center;
+    gap: 2rem;
 
 }
 
@@ -31,5 +32,40 @@ img{
 
 main{
     border: 1px solid #000;
+    background-color: rgb(192, 191, 191);
+    display: flex;
+    flex-direction: column;
+
+}
+
+.title{
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: center ;
+
+}
+
+.lists {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    gap: 0.1rem;
+}
+
+.day, .night {
+    /* border: 1px solid #000; */
+    background-color: rgb(255, 255, 255);
+    margin: 0.1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 2rem;
+
+
+}
+
+li{
+    list-style-type:circle;
+    padding-top: 1.7rem;
 }
 

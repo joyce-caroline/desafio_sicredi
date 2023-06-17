@@ -5,6 +5,7 @@
 }
 
 .container{
+    background-color: #D7C0AE;
     display: grid;
     grid-template-columns: 1.5fr 4fr;
     gap: 1.7rem;
@@ -13,33 +14,49 @@
 
 aside {
     padding: 2rem;
-    border: 1px solid #000;
+    /* border: 1px solid #000; */
     height: 40rem;
     padding: 0.9rem;
     display: flex;
     flex-direction: column;
     justify-content:start;
     align-items:center;
-    gap: 2rem;
+    gap: 1.7rem;
 
 }
 
 img{
-    width: 8rem;
+    width: 10rem;
     border-radius: 50rem;
     background-color: rgb(194, 185, 185);
 }
 
+.name{
+    font-family: 'Playfair Display', serif;
+}
+
+.description{
+    text-align: center;
+
+}
+
+/* li > aside{
+    list-style-type: none;
+} */
+
 main{
-    border: 1px solid #000;
-    background-color: rgb(192, 191, 191);
+    background-color: #967E76;
+    padding-left: 4rem;
+    padding-right: 4rem;
     display: flex;
     flex-direction: column;
 
 }
 
 .title{
-    padding-bottom: 3rem;
+    font-family: 'Playfair Display', serif;
+    padding-top: 3rem;
+    padding-bottom: 1.7rem;
     display: flex;
     justify-content: center ;
 
@@ -49,23 +66,26 @@ main{
     display: grid;
     grid-template-columns: 2fr 2fr;
     gap: 0.1rem;
+    width: auto;
 }
 
 .day, .night {
-    /* border: 1px solid #000; */
-    background-color: rgb(255, 255, 255);
+    font-family: 'Playfair Display', serif;
+    background-color: #D5C5C8;
     margin: 0.1rem;
+    line-height: 2rem;
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    line-height: 2rem;
-
-
+    align-content: center;
 }
 
+
 li{
+    font-family: Arial, Helvetica, sans-serif;
     list-style-type:circle;
+    list-style-position: inside;
     padding-top: 1.7rem;
 }
 

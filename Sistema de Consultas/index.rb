@@ -72,7 +72,7 @@ end
 
 ### FUNÇÃO PARA MARCAR CONSULTA
 def marcar_consulta (pacientes_cadastrados, agendamentos)
-    hoje = Time.now.strftime("%d/%m")
+    hoje = Time.now
     numero_paciente = 0
     loop do
         indice = 1
@@ -100,15 +100,17 @@ def marcar_consulta (pacientes_cadastrados, agendamentos)
     puts "Digite a especialidade da consulta:"
     especialidade = gets.chomp
 
+    unless (hoje.month < dia.split("/", 2)[1].to_i) || (hoje.day < dia.to_i)
+        puts "Data inválida!\n"
+        return false
+    end
+
     for consulta in agendamentos
         if(dia == consulta.dia) && (hora == consulta.hora)
             puts "\n Horário e dia já agendados! \n"
             puts "Tente outro horário! \n"
             return false
         end
-        if(Time.parse(dia) < Time.now)
-            puts "Data inválida!\n"
-            return false
     end
 
 
@@ -119,6 +121,9 @@ end
 ### FUNÇÃO PARA CANCELAR CONSULTA
 def cancelar_consulta (agendamentos)
     numero_agendamento = 0
+    if (agendamentos.length === 0)
+        return 0
+    end
     loop do
         indice = 1
         for consulta in agendamentos
@@ -147,16 +152,13 @@ def cancelar_consulta (agendamentos)
     end
 end
 
-
-
-
-
+#Inicialização de variáveis globais
 pacientes_cadastrados = []
 agendamentos = []
 cont_pacientes = 0
 cont_agendamentos = 0
 
-
+#Código Principal
 loop do
     puts "\t\t\t\t Sistema de Marcação de consultas"
     puts "Escolha a opção desejada: "
@@ -197,7 +199,10 @@ loop do
             when 3
                 system "clear"
                 numero_agendamento = cancelar_consulta(agendamentos)
-                if (numero_agendamento != -1)
+                if (numero_agendamento == 0)
+                    puts "Sem agendamentos!"
+                    sleep 2
+                elsif (numero_agendamento != -1)
                     agendamentos.delete_at(numero_agendamento)
                     puts "\n Agendamento cancelado! \n"
                     sleep 2
@@ -205,6 +210,8 @@ loop do
                 else
                     system "clear"
                 end
+
+
 
             else
                 puts "Opção inválida"
@@ -214,7 +221,7 @@ loop do
         break
     else
         result = "Valor Inválido"
-        # system "clear"
+        system "clear"
     end
 end
 

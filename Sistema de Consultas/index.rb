@@ -1,3 +1,5 @@
+require "time"
+
 ### CLASSE PARA CRIAÇÃO DO OBJETO PACIENTE
 class Paciente
     attr_accessor :nome
@@ -45,22 +47,32 @@ class Agendamento
     end
 
 
+
+
 end
 
 
 ### FUNÇÃO PARA CADASTRAR PACIENTE
-def cadastrar_paciente
+def cadastrar_paciente (pacientes_cadastrados)
     puts "\t\t\t Cadastro de Paciente"
     puts "Digite o nome do paciente: "
     nome = gets.chomp.to_s
     puts "Digite o telefone para contato: "
     telefone = gets.chomp.to_s
+    for pessoa in pacientes_cadastrados
+        if(pessoa.telefone == telefone)
+            puts "\n Paciente já cadastrado! \n"
+            return false
+        end
+    end
+
     return Paciente.new(nome, telefone)
 end
 
 
 ### FUNÇÃO PARA MARCAR CONSULTA
-def marcar_consulta (pacientes_cadastrados)
+def marcar_consulta (pacientes_cadastrados, agendamentos)
+    hoje = Time.now.strftime("%d/%m")
     numero_paciente = 0
     loop do
         indice = 1
@@ -87,6 +99,18 @@ def marcar_consulta (pacientes_cadastrados)
     hora = gets.chomp
     puts "Digite a especialidade da consulta:"
     especialidade = gets.chomp
+
+    for consulta in agendamentos
+        if(dia == consulta.dia) && (hora == consulta.hora)
+            puts "\n Horário e dia já agendados! \n"
+            puts "Tente outro horário! \n"
+            return false
+        end
+        if(Time.parse(dia) < Time.now)
+            puts "Data inválida!\n"
+            return false
+    end
+
 
     return Agendamento.new(pacientes_cadastrados[numero_paciente - 1], dia, hora, especialidade)
 end
@@ -121,7 +145,6 @@ def cancelar_consulta (agendamentos)
     else
         return -1
     end
-
 end
 
 
@@ -148,19 +171,27 @@ loop do
 
             when 1
                 system "clear"
-                pacientes_cadastrados[cont_pacientes] = cadastrar_paciente()
-                puts "\n Paciente Cadastrado com Sucesso! \n"
-                sleep 3
+                paciente = cadastrar_paciente(pacientes_cadastrados)
+
+                if (paciente != false)
+                    pacientes_cadastrados[cont_pacientes] = paciente
+                    puts "\n Paciente Cadastrado com Sucesso! \n"
+                    cont_pacientes += 1
+                end
+                sleep 2
                 system "clear"
-                cont_pacientes += 1
 
             when 2
                 system "clear"
-                agendamentos[cont_agendamentos] = marcar_consulta(pacientes_cadastrados)
-                puts "\n\n Agendamento realizado com sucesso!\n\n"
-                sleep 3
+                consulta = marcar_consulta(pacientes_cadastrados, agendamentos)
+
+                if(consulta != false)
+                    agendamentos[cont_agendamentos] = consulta
+                    puts "\n\n Agendamento realizado com sucesso!\n\n"
+                    cont_agendamentos += 1
+                end
+                sleep 2
                 system "clear"
-                cont_agendamentos += 1
 
 
             when 3

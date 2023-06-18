@@ -2,20 +2,28 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    position: relative;
 }
 
+
+
 .container{
-    background-color: #D7C0AE;
+    overflow-x:hidden;
+    max-width: 1440px;
+    padding: 1.7rem;
+    background-color: #ffcaa2;
+    background-size: cover;
+    padding-bottom: 2rem;
     display: grid;
-    grid-template-columns: 1.5fr 4fr;
+    grid-template-columns: 1fr 4fr;
     gap: 1.7rem;
+    display: flex;
 
 }
 
 aside {
     padding: 2rem;
-    /* border: 1px solid #000; */
-    height: 40rem;
+    height: 20%;
     padding: 0.9rem;
     display: flex;
     flex-direction: column;
@@ -37,19 +45,37 @@ img{
 
 .description{
     text-align: center;
-
 }
 
-/* li > aside{
-    list-style-type: none;
-} */
-
-main{
-    background-color: #967E76;
-    padding-left: 4rem;
-    padding-right: 4rem;
+.menu{
     display: flex;
     flex-direction: column;
+    align-items: center;
+    list-style-type: none;
+    padding: 1.2rem  0.9rem;
+}
+
+a:link{
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover{
+    background-color: #ff7f1d38 ;
+    padding: 1rem 0.9rem;
+    border-radius: 10px;
+}
+
+main{
+    min-width: 70%;
+    overflow-x:hidden;
+    background-color: #a77e97;
+    padding-left: 4rem;
+    padding-right: 4rem;
+    padding-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+
 
 }
 
@@ -59,33 +85,47 @@ main{
     padding-bottom: 1.7rem;
     display: flex;
     justify-content: center ;
-
 }
 
 .lists {
     display: grid;
     grid-template-columns: 2fr 2fr;
     gap: 0.1rem;
-    width: auto;
+
 }
 
 .day, .night {
     font-family: 'Playfair Display', serif;
     background-color: #D5C5C8;
-    margin: 0.1rem;
     line-height: 2rem;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
     align-content: center;
 }
 
 
-li{
+
+.items-list{
     font-family: Arial, Helvetica, sans-serif;
-    list-style-type:circle;
     list-style-position: inside;
     padding-top: 1.7rem;
 }
+
+button {
+    padding: 2%;
+    margin: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 90%;
+    border-radius: 10%;
+    border: none;
+    background-color: #a77e97;
+}
+
+button:hover{
+    background-color: #fa3bb1;
+    font-size: 100%;
+}
+
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criação de Layout</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,10 +20,10 @@
             </h1>
             <p class="description"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti mollitia, facere adipisci totam velit eum repellendus fugiat sequi quas et dolorum qui aut accusamus libero.</p>
             <ul>
-                <li><a href=”#”>Link1</a></li>
-                <li><a href=”#”>Link2</a></li>
-                <li><a href=”#”>Link3</a></li>
-                <li><a href=”#”>Link4</a></li>
+                <li class="menu"><a href=”#”>Nova Lista</a></li>
+                <li class="menu"><a href=”#”>Gerenciar Listas</a></li>
+                <li class="menu"><a href=”#”>Configurações</a></li>
+                <li class="menu"><a href=”#”>Suporte</a></li>
             </ul>
         </aside>
         <main>
@@ -33,52 +33,43 @@
 
                 <div class="day">
                     <h2>Dia</h2>
-                    <div class="items-list">
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet consectetur.
+                    <div>
+                        <ol id="items-list-day">
+                            <li class="items-list">Lorem ipsum dolor sit amet consectetur.
                             </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
+                            <li class="items-list">Lorem ipsum dolor sit amet consectetur.
                             </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
+                            <li class="items-list">Lorem ipsum dolor sit amet consectetur.
                             </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
+                            <li class="items-list">Lorem ipsum dolor sit amet consectetur.
                             </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
-                            </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
-                            </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
-                            </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
-                            </li>
-                        </ul>
+                        </ol>
+                        <button onclick="AddItemDay()" >Adicionar</button>
+                        <button onclick="RemoveItemDay()" >Remover</button>
                     </div>
                 </div>
 
                 <div class="night">
                     <h2>Noite</h2>
-                    <div class="items-list">
-                        <ul>
-                            <li>Lorem ipsum dolor sit amet consectetur.
+                    <div>
+                        <ol id="items-list-night">
+                            <li class="items-list">Lorem ipsum dolor sit amet consectetur.
                             </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
+                            <li class="items-list">Lorem ipsum dolor sit amet consectetur.
                             </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
+                            <li class="items-list">Lorem ipsum dolor sit amet consectetur.
                             </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
+                            <li class="items-list">Lorem ipsum dolor sit amet consectetur.
                             </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
+                            <li class="items-list">Lorem ipsum dolor sit amet consectetur.
                             </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
-                            </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
-                            </li>
-                            <li>Lorem ipsum dolor sit amet consectetur.
-                            </li>
-                        </ul>
+                        </ol>
+                        <button onclick="AddItemNight()" >Adicionar</button>
+                        <button onclick="RemoveItemNight()" >Remover</button>
                     </div>
                 </div>
         </main>
     </div>
+    <script src="./index.js"></script>
 </body>
 </html>

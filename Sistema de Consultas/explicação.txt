@@ -1,0 +1,33 @@
+1 - O código foi desenvolvido pensando em Paciente e Agendamento (consultas marcadas), como objetos.Foram criadas duas
+Classes: Paciente e Agendamento, com seus respectivos métodos.
+
+2 - Depois foram desenvolvidas três funções, para executarem as ações escolhidas pelo usuário.
+
+2.1 - A função cadastrar_paciente, recebe os dados do paciente que está sendo cadastrado e verifica se ele já não foi
+cadastrado, para evitar duplicidade de cadastros. Caso ele não esteja cadastrado, a função retorna um objeto paciente
+com o uso da Classe Paciente.
+
+2.2 - A função marcar_consulta, exibe todos pacientes já cadastrados e solicita que o usuário escolha um para marcar a
+consulta. Verifica se a escolha do usuário está dentro do intervalo válido, caso esteja rebece as informações referentes
+a consulta. Após receber as informações verifica se a data e horário já não possuem agendamento. Por fim a função
+retorna um agendamento.
+
+2.3 - A função cancelar_consulta exibe todas as consultas agendadas e solicita que  o usuário digite o número
+correspondente à consulta. Verifica se o número digitado pelo usuário está dentro do intervalo válido.Caso esteja
+correto solicita a confirmação do cancelamento da consulta, pelo usuário. Por fim retorna o indice da consulta a ser
+removido do array de consultas agendadas.
+
+3 - Após a implementar as classes e a funções é implementado um laço de repetição para renderizar o menu e receber a
+escolha do usuário. Com o uso de um 'switch case', o programa executa os casos de acordo com a escolha.
+
+4 - O trecho de código:
+```
+resultado = JSON.generate(paciente.to_hash)
+bd =File.open("db-table-pacientes.txt", "a+")
+bd.puts(resultado)
+bd.close
+
+```
+foi uma tentativa de simular um banco de dados, onde foi gerado um hash com os dados do paciente, e com o uso da classe
+File, os dados do paciente são salvos no arquivo "db-table-pacientes.txt", em formato JSON.
+
